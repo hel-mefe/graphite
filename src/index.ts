@@ -1,23 +1,8 @@
-import { DefaultModuleGraph } from "./graph/ModuleGraph" ;
-import { Module } from "./graph/types" ;
+import { Compiler } from "./compiler/Compiler" ;
 
-const graph = new DefaultModuleGraph() ;
+const compiler = new Compiler({
+  entry: "examples/basic/index.ts",
+  outputDir: "dist"
+});
 
-const a: Module = {
-  id: "A",
-  filePath: "/A.ts",
-  dependencies: []
-} ;
-
-const b: Module = {
-  id: "B",
-  filePath: "/B.ts",
-  dependencies: []
-} ;
-
-
-graph.addModule(a) ;
-graph.addModule(b) ;
-graph.addDependency("A", "B" ) ;
-
-console.log(graph.getDependencies("A")); // ["B"]
+compiler.run();
