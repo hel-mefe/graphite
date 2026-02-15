@@ -1,6 +1,6 @@
 # Graphite
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/43b5ba38-4e65-45d9-8619-4c248dead558" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b1d9e34b-2164-468d-9754-bdb67f19ada7" />
 
 
 **Graphite** is a from-scratch implementation of a JavaScript/TypeScript bundler, built to deeply understand how modern bundlers work internally.
