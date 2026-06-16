@@ -42,4 +42,10 @@ Every subsystem exists for a reason and mirrors real-world bundler internals.
 
 A bundler is treated as a compiler pipeline:
 
+---
+
+## Documentation
+
+See [`docs/README.md`](./docs/README.md) for a guided walkthrough of Graphite’s architecture, module graph, parsing/resolution, emission/runtime, tree-shaking, and dev server/HMR.
+
 
