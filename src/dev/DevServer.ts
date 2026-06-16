@@ -9,6 +9,7 @@ import { Resolver } from "../resolver/Resolver" ;
 import { TreeShaker } from "../optimizer/TreeShaker" ;
 import { BundleEmitter } from "../emitter/BundleEmitter" ;
 import type { CompilerOptions } from "../compiler/types" ;
+import { logger } from "../shared/logger" ;
 
 export class DevServer {
   private readonly options: CompilerOptions ;
@@ -35,6 +36,7 @@ export class DevServer {
       const used = shaker.analyze(graph, entryAbs) ;
       this.emitter.emit(graph, { outDir, outFile, usedExports: used, dev: true }) ;
       this.writeHtml(outDir, outFile) ;
+      logger.success(`rebuilt ${path.join(outDir, outFile)}`) ;
       return used ;
     } ;
 
@@ -105,7 +107,7 @@ export class DevServer {
 
     const port = 3000 ;
     server.listen(port, () => {
-      console.log(`[graphite] dev server on http://localhost:${port}`) ;
+      logger.success(`dev server on http://localhost:${port}`) ;
     }) ;
   }
 
@@ -167,7 +169,7 @@ export class DevServer {
         }
       }
     } catch (e) {
-      console.error("[graphite] rebuild failed", e) ;
+      logger.error(`rebuild failed: ${(e as Error).message}`) ;
     }
   }
 

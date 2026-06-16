@@ -3,6 +3,7 @@ import { GraphBuilder } from "./GraphBuilder" ;
 import { TreeShaker } from "../optimizer/TreeShaker" ;
 import { BundleEmitter } from "../emitter/BundleEmitter" ;
 import path from "path" ;
+import { logger } from "../shared/logger" ;
 
 export class Compilation {
   private readonly options: CompilerOptions ;
@@ -25,7 +26,7 @@ export class Compilation {
       dev: this.options.dev ?? false,
     }) ;
 
-    console.log(`[graphite] emitted ${written}`) ;
+    logger.success(`emitted ${written}`) ;
   }
 
   private buildModuleGraph() {

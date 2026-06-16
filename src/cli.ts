@@ -1,6 +1,7 @@
 import path from "path" ;
 import { Compiler } from "./compiler/Compiler" ;
 import { DevServer } from "./dev/DevServer" ;
+import { logger } from "./shared/logger" ;
 
 function getArg(name: string): string | undefined {
   const idx = process.argv.indexOf(name) ;
@@ -19,6 +20,9 @@ function main(): void {
   const outFile = getArg("--outFile") ?? "bundle.js" ;
 
   if (cmd === "dev") {
+    logger.section("Graphite Dev") ;
+    logger.info(`entry: ${path.resolve(entry)}`) ;
+    logger.info(`out:   ${path.resolve(outDir)}/${outFile}`) ;
     const server = new DevServer({
       entry: path.resolve(entry),
       outputDir: path.resolve(outDir),
@@ -30,6 +34,9 @@ function main(): void {
   }
 
   if (cmd === "build") {
+    logger.section("Graphite Build") ;
+    logger.info(`entry: ${path.resolve(entry)}`) ;
+    logger.info(`out:   ${path.resolve(outDir)}/${outFile}`) ;
     const compiler = new Compiler({
       entry,
       outputDir: outDir,
@@ -40,7 +47,7 @@ function main(): void {
     return ;
   }
 
-  console.error(`[graphite] unknown command '${cmd}' (expected build|dev)`) ;
+  logger.error(`unknown command '${cmd}' (expected build|dev)`) ;
   process.exit(1) ;
 }
 
