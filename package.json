@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "bundle": "npx ts-node src/cli.ts build --entry examples/basic/index.ts --outDir dist",
+    "dev": "npx ts-node src/cli.ts dev --entry examples/basic/index.ts --outDir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +22,11 @@
   "homepage": "https://github.com/hel-mefe/graphite#readme",
   "devDependencies": {
     "@types/node": "^25.0.5",
+    "@types/ws": "^8.18.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
   }
 }

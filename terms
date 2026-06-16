@@ -1,0 +1,19 @@
+Emit: write to disk
+
+For a bundler, emit answers one question:
+
+What files should the user see after the build finishes?
+
+Examples of emitted files:
+
+dist/main.js
+
+dist/admin.js
+
+dist/runtime.js
+
+dist/styles.css
+
+dist/assets/logo.png
+
+These are called compiled artifacts.

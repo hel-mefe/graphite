@@ -9,6 +9,16 @@ export interface CompilerOptions {
    * Output directory for emitted assets
    */
   outputDir: string ;
+
+  /**
+   * Output bundle filename (relative to outputDir)
+   */
+  outputFile?: string ;
+
+  /**
+   * Enable development features (watch + HMR runtime hooks).
+   */
+  dev?: boolean ;
 }
 
 /**
