@@ -2,6 +2,7 @@ import path from "path" ;
 import { Compiler } from "./compiler/Compiler" ;
 import { DevServer } from "./dev/DevServer" ;
 import { logger } from "./shared/logger" ;
+import { printBanner } from "./shared/banner" ;
 
 function getArg(name: string): string | undefined {
   const idx = process.argv.indexOf(name) ;
@@ -20,6 +21,7 @@ function main(): void {
   const outFile = getArg("--outFile") ?? "bundle.js" ;
 
   if (cmd === "dev") {
+    printBanner(logger) ;
     logger.section("Graphite Dev") ;
     logger.info(`entry: ${path.resolve(entry)}`) ;
     logger.info(`out:   ${path.resolve(outDir)}/${outFile}`) ;
@@ -34,6 +36,7 @@ function main(): void {
   }
 
   if (cmd === "build") {
+    printBanner(logger) ;
     logger.section("Graphite Build") ;
     logger.info(`entry: ${path.resolve(entry)}`) ;
     logger.info(`out:   ${path.resolve(outDir)}/${outFile}`) ;
