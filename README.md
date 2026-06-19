@@ -1,7 +1,7 @@
 # Graphite
 
 <p align="center">
-  <img width="900" alt="Graphite" src="https://github.com/user-attachments/assets/b1d9e34b-2164-468d-9754-bdb67f19ada7" />
+  <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/47dbc96e-c59e-46e3-8146-6cd4e7d9156f" />
 </p>
 
 <p align="center">
